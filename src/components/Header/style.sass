@@ -5,12 +5,35 @@
     width: 100%
     max-width: 1000px
     margin: 0 auto
-  &__title
-    text-align: center
+    display: flex
+    justify-content: space-between
+  &__logo
     padding-top: 10px
     color: violet
     font-family: "Circular", sans-serif
-    font-size: 48px
+    font-size: 36px
     font-weight: bold
+    cursor: pointer
+    text-decoration: none
     &--black
       color: rgb(15,19,35)
+      &:hover
+        color: violet
+
+.nav
+  &__list
+    display: flex
+    justify-content: space-between
+    list-style-type: none
+    padding-top: 20px
+    width: 70%
+    max-width: 400px
+  &__link
+    text-decoration: none
+    font-family: "Circular", sans-serif
+    font-size: 24px
+    color: violet
+    font-weight: bold
+    &:hover
+      color: rgb(15,19,35)
+

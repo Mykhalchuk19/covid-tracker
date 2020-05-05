@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux';
 import { all } from 'redux-saga/effects';
 
-import summaryReducer, { summarySaga } from './summary';
+import commonReducer, { commonSaga } from './сommon';
 
 const rootReducer = combineReducers({
-  summary: summaryReducer,
+  common: commonReducer,
 });
 
 export const rootSaga = function* () {
   yield all([
-    summarySaga(),
+    commonSaga(),
   ])
 };
 

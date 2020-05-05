@@ -5,7 +5,7 @@ import {
 import { api } from '../../utils';
 
 import types from './types';
-import { summaryFetchSuccess, summaryFetchDailySuccess } from './actions';
+import { summaryFetchSuccess, dailyFetchSuccess, placesFetchSuccess } from './actions';
 
 function* fetchSummary() {
   while (true) {
@@ -41,12 +41,39 @@ function* fetchSummary() {
 function* fetchDataDaily() {
   while (true) {
     try {
-      yield take(types.SUMMARY_FETCH_DAILY_REQUEST);
+      yield take(types.DAILY_FETCH_REQUEST);
       const res = yield call(api, 'api/daily', {
         method: 'GET',
-      });
-      yield put(summaryFetchDailySuccess({
-        dataDaily: [...Object.values(res)],
+      })
+      yield put(dailyFetchSuccess({
+        dataDaily: [...res.map((elem) => ({
+          confirmed: elem.confirmed.total,
+          deaths: elem.deaths.total,
+          reportDate: elem.reportDate,
+        }))],
+      }))
+    } catch (e) {
+      alert(e);
+    }
+  }
+}
+
+function* fetchPlaces() {
+  while (true) {
+    try {
+      yield take(types.PLACES_FETCH_REQUEST);
+      const res = yield call(api, 'api/confirmed', {
+        method: 'GET',
+      })
+      yield put(placesFetchSuccess({
+        places: [...res.map((elem) => ({
+          id: elem.uid,
+          placeName: elem.combinedKey,
+          confirmed: elem.confirmed,
+          recovered: elem.recovered,
+          active: elem.active,
+          deaths: elem.deaths,
+        })).slice(0, 5)],
       }))
     } catch (e) {
       alert(e);
@@ -56,5 +83,6 @@ function* fetchDataDaily() {
 
 export default function* () {
   yield fork(fetchSummary);
-  yield fork(fetchDataDaily)
+  yield fork(fetchDataDaily);
+  yield fork(fetchPlaces);
 }

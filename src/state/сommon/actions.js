@@ -5,11 +5,15 @@ import types from './types';
 export const {
   summaryFetchRequest,
   summaryFetchSuccess,
-  summaryFetchDailyRequest,
-  summaryFetchDailySuccess,
+  dailyFetchRequest,
+  dailyFetchSuccess,
+  placesFetchRequest,
+  placesFetchSuccess,
 } = createActions(
   types.SUMMARY_FETCH_REQUEST,
   types.SUMMARY_FETCH_SUCCESS,
-  types.SUMMARY_FETCH_DAILY_REQUEST,
-  types.SUMMARY_FETCH_DAILY_SUCCESS,
+  types.DAILY_FETCH_REQUEST,
+  types.DAILY_FETCH_SUCCESS,
+  types.PLACES_FETCH_REQUEST,
+  types.PLACES_FETCH_SUCCESS,
 )

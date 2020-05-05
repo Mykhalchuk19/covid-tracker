@@ -1,5 +1,5 @@
-import Content from "./Content/Content";
+import Routing from './Routing/Routing';
 
 export {
-    Content
+  Routing,
 }
