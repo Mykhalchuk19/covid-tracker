@@ -5,7 +5,7 @@ import {
 import { api } from '../../utils';
 
 import types from './types';
-import { summaryFetchSuccess } from './actions';
+import { summaryFetchSuccess, summaryFetchDailySuccess } from './actions';
 
 function* fetchSummary() {
   while (true) {
@@ -38,6 +38,23 @@ function* fetchSummary() {
   }
 }
 
+function* fetchDataDaily() {
+  while (true) {
+    try {
+      yield take(types.SUMMARY_FETCH_DAILY_REQUEST);
+      const res = yield call(api, 'api/daily', {
+        method: 'GET',
+      });
+      yield put(summaryFetchDailySuccess({
+        dataDaily: [...Object.values(res)],
+      }))
+    } catch (e) {
+      alert(e);
+    }
+  }
+}
+
 export default function* () {
   yield fork(fetchSummary);
+  yield fork(fetchDataDaily)
 }

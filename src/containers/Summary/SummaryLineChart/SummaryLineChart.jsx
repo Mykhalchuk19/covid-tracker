@@ -4,7 +4,7 @@ import {
   AreaChart, Area, Tooltip, XAxis, YAxis, CartesianGrid, Legend,
 } from 'recharts';
 
-import { dailyActions, dailySelectors } from '../../../state/daily';
+import { summaryActions, summarySelectors } from '../../../state/summary';
 
 const legendCharts = [
   {
@@ -26,9 +26,9 @@ const changeColor = (value, entry) => {
 
 const SummaryLineChart = () => {
   const dispatch = useDispatch();
-  const dailyData = useSelector(dailySelectors.getDailyData);
+  const dailyData = useSelector(summarySelectors.getDailyData);
   useEffect(() => {
-    dispatch(dailyActions.summaryFetchDailyRequest());
+    dispatch(summaryActions.summaryFetchDailyRequest());
   }, [dispatch]);
   return (
     <div className="line-chart">

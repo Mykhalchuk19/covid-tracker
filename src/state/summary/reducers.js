@@ -4,6 +4,7 @@ import types from './types';
 
 const defaultState = {
   dataSummary: [],
+  dataDaily: [],
   loading: false,
 }
 
@@ -14,6 +15,8 @@ const summaryReducer = handleActions({
     ...dataSummary,
     loading: false,
   }),
+  [types.SUMMARY_FETCH_DAILY_REQUEST]: (state) => ({ ...state, loading: true }),
+  [types.SUMMARY_FETCH_DAILY_SUCCESS]: (state, { payload: dataDaily }) => ({ ...state, ...dataDaily, loading: false }),
 }, defaultState);
 
 export default summaryReducer;
