@@ -6,7 +6,7 @@ import {
 import { Lines } from 'react-preloaders';
 
 import { commonActions, commonSelectors } from '../../state/сommon';
-import { Header } from '../../components';
+import { Header, Footer } from '../../components';
 import './style.sass';
 
 const changeColor = (value, entry) => {
@@ -24,8 +24,8 @@ const DailyData = () => {
   return (
     <>
       <Header />
-      <div className="daily__container">
-        <h2 className="daily__title">Amount of cases daily</h2>
+      <div className="container">
+        <h2 className="title">Amount of cases daily</h2>
         <ResponsiveContainer className="daily__line-chart" width="70%" height={450}>
           <AreaChart
             data={dailyData}
@@ -60,6 +60,7 @@ const DailyData = () => {
           </AreaChart>
         </ResponsiveContainer>
       </div>
+      <Footer />
       <Lines color="#8884d8" customLoading={isLoading} />
     </>
   )

@@ -6,21 +6,10 @@ import { Lines } from 'react-preloaders';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { commonActions, commonSelectors } from '../../state/сommon';
+import { colors } from '../../constants';
+import { Header, Footer } from '../../components';
 import './style.sass';
-import { Header } from '../../components';
 
-const colors = [{
-  id: 1,
-  color: '#8884d8',
-},
-{
-  id: 2,
-  color: 'mediumseagreen',
-},
-{
-  id: 3,
-  color: 'crimson',
-}];
 
 const SummaryData = () => {
   const dispatch = useDispatch();
@@ -32,8 +21,8 @@ const SummaryData = () => {
   return (
     <>
       <Header />
-      <div className="home__container">
-        <h2 className="home__title">SUMMARY CASES</h2>
+      <div className="container">
+        <h2 className="title">SUMMARY CASES</h2>
         <ResponsiveContainer className="home__bar-chart" width="70%" height={400}>
           <BarChart
             data={dataSummary}
@@ -53,6 +42,7 @@ const SummaryData = () => {
           </BarChart>
         </ResponsiveContainer>
       </div>
+      <Footer />
       <Lines color="#8884d8" customLoading={isLoading} />
     </>
   )
