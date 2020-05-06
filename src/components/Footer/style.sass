@@ -1,15 +1,25 @@
+@import "~breakpoint-sass/stylesheets/breakpoint"
+
 .footer
   width: 100%
   display: flex
   justify-content: space-around
   padding: 30px 0
+  @include breakpoint(max-width 510px)
+     flex-direction: column
   &__block
     width: 40%
+    @include breakpoint(max-width 510px)
+       width: 90%
+       margin: 0 auto
   &__text
     font-family: Circular, sans-serif
     font-size: 18px
     margin-bottom: 10px
     color: #8884d8
+    @include breakpoint(max-width 510px)
+       font-size: 14px
+       text-align: center
   &__link
     color: crimson
     text-decoration: none

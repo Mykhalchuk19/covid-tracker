@@ -1,11 +1,10 @@
+@import "~breakpoint-sass/stylesheets/breakpoint"
+
 .country
   &__select
     font-family: Circular, sans-serif
     width: 300px
     color: grey
-    margin: 0 auto
-    padding-top: 30px
-  &__bar-chart
     margin: 0 auto
     padding-top: 30px
   &__text
@@ -15,3 +14,5 @@
     font-weight: bold
     color: lightseagreen
     text-align: center
+    @include breakpoint(max-width 510px)
+      font-size: 16px

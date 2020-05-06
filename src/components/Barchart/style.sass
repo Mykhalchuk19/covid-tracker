@@ -1,0 +1,12 @@
+@import "~breakpoint-sass/stylesheets/breakpoint"
+
+.bar-chart
+    margin: 20px auto 0
+    font-family: 'Circular', sans-serif
+    width: 70%
+    height: 400px
+    @include breakpoint(max-width 510px)
+      height: 200px
+      width: 97%
+      font-size: 12px
+

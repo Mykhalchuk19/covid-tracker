@@ -1,5 +1,16 @@
+@import "~breakpoint-sass/stylesheets/breakpoint"
+
 .daily
   &__line-chart
+    width: 70%
+    height: 500px
     margin: 20px auto 0
     font-family: 'Circular', sans-serif
+    font-size: 14px
+    @include breakpoint(max-width 768px)
+      height: 400px
+    @include breakpoint(max-width 510px)
+      height: 250px
+      font-size: 10px
+      width: 97%
 

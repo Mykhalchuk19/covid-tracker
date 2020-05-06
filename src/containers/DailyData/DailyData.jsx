@@ -26,39 +26,41 @@ const DailyData = () => {
       <Header />
       <div className="container">
         <h2 className="title">Amount of cases daily</h2>
-        <ResponsiveContainer className="daily__line-chart" width="70%" height={450}>
-          <AreaChart
-            data={dailyData}
-            margin={{
-              top: 0, right: 40, left: 10, bottom: 0,
-            }}
-          >
-            <defs>
-              <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#8884d8" stopOpacity={0.95} />
-                <stop offset="95%" stopColor="#8884d8" stopOpacity={0.3} />
-              </linearGradient>
-              <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="crimson" stopOpacity={0.7} />
-                <stop offset="95%" stopColor="crimson" stopOpacity={0} />
-              </linearGradient>
-            </defs>
-            <Legend
-              verticalAlign="top"
-              iconType="square"
-              formatter={changeColor}
-              wrapperStyle={{
-                paddingBottom: '20px',
+        <div className="daily__line-chart">
+          <ResponsiveContainer>
+            <AreaChart
+              data={dailyData}
+              margin={{
+                top: 0, right: 40, left: 10, bottom: 0,
               }}
-            />
-            <XAxis dataKey="reportDate" />
-            <YAxis />
-            <Tooltip abelFormatter={() => 'Info'} />
-            <CartesianGrid strokeDasharray="5 5" />
-            <Area type="monotone" dataKey="confirmed" stroke="#8884d8" fill="url(#colorUv)" />
-            <Area type="monotone" dataKey="deaths" stroke="crimson" fill="url(#colorPv)" />
-          </AreaChart>
-        </ResponsiveContainer>
+            >
+              <defs>
+                <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#8884d8" stopOpacity={0.95} />
+                  <stop offset="95%" stopColor="#8884d8" stopOpacity={0.3} />
+                </linearGradient>
+                <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="crimson" stopOpacity={0.7} />
+                  <stop offset="95%" stopColor="crimson" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <Legend
+                verticalAlign="top"
+                iconType="square"
+                formatter={changeColor}
+                wrapperStyle={{
+                  paddingBottom: '20px',
+                }}
+              />
+              <XAxis dataKey="reportDate" />
+              <YAxis />
+              <Tooltip abelFormatter={() => 'Info'} />
+              <CartesianGrid strokeDasharray="5 5" />
+              <Area type="monotone" dataKey="confirmed" stroke="#8884d8" fill="url(#colorUv)" />
+              <Area type="monotone" dataKey="deaths" stroke="crimson" fill="url(#colorPv)" />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
       </div>
       <Footer />
       <Lines color="#8884d8" customLoading={isLoading} />

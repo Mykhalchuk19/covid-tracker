@@ -1,3 +1,5 @@
+@import "~breakpoint-sass/stylesheets/breakpoint"
+
 .header
   width: 100%
   height: 100px
@@ -7,6 +9,8 @@
     margin: 0 auto
     display: flex
     justify-content: space-between
+    @include breakpoint(max-width 768px)
+      flex-direction: column
   &__logo
     padding-top: 10px
     color: violet
@@ -19,7 +23,10 @@
       color: rgb(15,19,35)
       &:hover
         color: violet
-
+    @include breakpoint(max-width 768px)
+       text-align: center
+    @include breakpoint(max-width 500px)
+      font-size: 24px
 .nav
   &__list
     display: flex
@@ -28,6 +35,9 @@
     padding-top: 20px
     width: 70%
     max-width: 400px
+    @include breakpoint(max-width 768px)
+      margin: 0 auto
+      width: 100%
   &__link
     text-decoration: none
     font-family: "Circular", sans-serif
@@ -36,4 +46,5 @@
     font-weight: bold
     &:hover
       color: rgb(15,19,35)
-
+    @include breakpoint(max-width 500px)
+      font-size: 16px
