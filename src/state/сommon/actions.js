@@ -13,6 +13,7 @@ export const {
   countriesFetchSuccess,
   countryFetchRequest,
   countryFetchSuccess,
+  countryDataReset,
   updateFetchRequest,
   updateFetchSuccess,
 } = createActions(
@@ -26,6 +27,7 @@ export const {
   types.COUNTRIES_FETCH_SUCCESS,
   types.COUNTRY_FETCH_REQUEST,
   types.COUNTRY_FETCH_SUCCESS,
+  types.COUNTRY_DATA_RESET,
   types.UPDATE_FETCH_REQUEST,
   types.UPDATE_FETCH_SUCCESS,
 )

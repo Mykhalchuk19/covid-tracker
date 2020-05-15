@@ -43,6 +43,10 @@ const commonReducer = handleActions({
     ...country,
     loading: false,
   }),
+  [types.COUNTRY_DATA_RESET]: (state) => ({
+    ...state,
+    country: [],
+  }),
   [types.UPDATE_FETCH_REQUEST]: (state) => ({ ...state, loading: true }),
   [types.UPDATE_FETCH_SUCCESS]: (state, { payload: lastUpdate }) => ({
     ...state,

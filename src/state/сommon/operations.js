@@ -111,7 +111,6 @@ function* fetchCountry() {
   while (true) {
     try {
       const action = yield take(types.COUNTRY_FETCH_REQUEST);
-      console.log(action.payload.value);
       const res = yield call(api, `api/countries/${action.payload.value}`, {
         method: 'GET',
       });

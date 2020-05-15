@@ -15,6 +15,7 @@ const Country = () => {
   const country = useSelector(commonSelectors.getCountrySelector);
   useEffect(() => {
     dispatch(commonActions.countriesFetchRequest());
+    return () => { dispatch(commonActions.countryDataReset()) }
   }, [dispatch])
   return (
     <>
